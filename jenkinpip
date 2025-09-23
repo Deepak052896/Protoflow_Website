@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    triggers {
+        githubPush()   // 👈 Trigger build when push happens to GitHub
+    }
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git credentialsId: 'your-cred-id', url: 'https://github.com/your-user/your-repo.git', branch: 'main'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+}
