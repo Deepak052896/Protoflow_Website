@@ -812,46 +812,88 @@
             opacity: 0.3;
         }
 
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
+        /* ===== FINAL TRUE CENTER FIX ===== */
+        #contact {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        #contact .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 40px;
+        }
+
+        /* remove outer container padding */
+        #contact .container {
+             padding: 0;
+             margin: 0 auto;
+             max-width: 100%;
+        }
+
+        /* main block */
+        #contact .contact-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* each item group */
+        #contact .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 25px;
         }
 
-        .contact-item {
+        /* true center row */
+        #contact .contact-item {
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 15px;
+            margin: 0 auto;
+            position: relative;
+            left: 10px; /* small optical nudge for perfect centering */
         }
 
-        .contact-icon {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        /* circle icon */
+        #contact .contact-icon {
+            background: #2563eb;
+            color: #fff;
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
         }
 
-        .contact-details h3 {
-            color: var(--secondary);
-            margin-bottom: 5px;
-            font-size: 1.2rem;
+        /* text beside icon */
+        #contact .contact-details {
+            text-align: left;
+            min-width: 180px;
         }
 
-        .contact-details p {
+        /* text style */
+        #contact .contact-details h3 {
+            color: #3b82f6;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        #contact .contact-details p {
             color: #cbd5e1;
+            font-size: 0.95rem;
         }
+
 
         .social-links {
             display: flex;
@@ -1033,3 +1075,65 @@
                 text-align: center;
             }
         }
+
+/* --- LOCATION MAP AREA FIX --- */
+.map-container {
+  width: 100%;
+  max-width: 1300px;  /* Wider Map */
+  margin: 50px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: fadeIn 0.5s ease forwards;
+  transition: all 0.4s ease;
+}
+
+.map-container iframe {
+  display: block;
+  width: 750px !important;
+  height: 350px !important;  /* 🔥 Increased height */
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.map-container iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+}
+
+/* Close Button */
+.close-map-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-map-btn:hover {
+  background: rgba(59, 130, 246, 0.8);
+  transform: scale(1.1);
+}
+
+/* Hover hint text */
+.hover-text {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #60a5fa;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  font-style: italic;
+}

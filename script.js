@@ -47,4 +47,35 @@
                 document.body.style.overflow = 'auto'; // Enable scrolling again
             }
         });
-        
+
+ 
+        document.addEventListener("DOMContentLoaded", function() {
+  const locationTrigger = document.getElementById("locationTrigger");
+  const mapSection = document.getElementById("mapSection");
+  const hoverMessage = document.getElementById("hoverMessage");
+  const closeMapBtn = document.getElementById("closeMapBtn");
+
+  if (locationTrigger && mapSection && hoverMessage && closeMapBtn) {
+    locationTrigger.addEventListener("mouseenter", function() {
+      hoverMessage.style.opacity = "0";
+      setTimeout(() => { hoverMessage.style.display = "none"; }, 300);
+      mapSection.style.display = "block";
+      mapSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    closeMapBtn.addEventListener("click", function() {
+      mapSection.style.display = "none";
+      hoverMessage.style.display = "inline-block";
+      setTimeout(() => { hoverMessage.style.opacity = "1"; }, 200);
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        mapSection.style.display = "none";
+        hoverMessage.style.display = "inline-block";
+        setTimeout(() => { hoverMessage.style.opacity = "1"; }, 200);
+      }
+    });
+  }
+});
+
