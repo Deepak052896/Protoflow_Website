@@ -477,17 +477,20 @@
   <button id="closeMapBtn" class="close-map-btn">&times;</button>
   <h3 class="map-title">📍 Find Me Here</h3>
 
-  <!-- Map Frame -->
-  <div class="map-wrapper" id="mapWrapper">
+  <!-- Map Wrapper -->
+  <div class="map-wrapper">
+    <div class="map-click-layer" id="mapClickLayer"></div> <!-- 🧩 New clickable layer -->
     <iframe
       id="myMap"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1135800247454!2d79.04782657480509!3d10.801983889349021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baab89b36db8e49%3A0xf9c4b058b61f9c3f!2sCoimbatore!5e0!3m2!1sen!2sin!4v1699898239872!5m2!1sen!2sin"
       allowfullscreen=""
       loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
+      referrerpolicy="no-referrer-when-downgrade"
+      style="pointer-events: none;">
     </iframe>
   </div>
 </div>
+
 
 
 

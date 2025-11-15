@@ -48,14 +48,15 @@
             }
         });
 
- 
-        document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   const locationTrigger = document.getElementById("locationTrigger");
   const mapSection = document.getElementById("mapSection");
   const hoverMessage = document.getElementById("hoverMessage");
   const closeMapBtn = document.getElementById("closeMapBtn");
+  const mapClickLayer = document.getElementById("mapClickLayer");
 
   if (locationTrigger && mapSection && hoverMessage && closeMapBtn) {
+    // Show map when hover
     locationTrigger.addEventListener("mouseenter", function() {
       hoverMessage.style.opacity = "0";
       setTimeout(() => { hoverMessage.style.display = "none"; }, 300);
@@ -63,12 +64,14 @@
       mapSection.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
+    // Close map
     closeMapBtn.addEventListener("click", function() {
       mapSection.style.display = "none";
       hoverMessage.style.display = "inline-block";
       setTimeout(() => { hoverMessage.style.opacity = "1"; }, 200);
     });
 
+    // Close with Esc
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
         mapSection.style.display = "none";
@@ -77,5 +80,12 @@
       }
     });
   }
-});
 
+  // 🔥 When user clicks map area → open full Google Maps in new tab
+  if (mapClickLayer) {
+    mapClickLayer.addEventListener("click", function() {
+      window.open("https://www.google.com/maps/place/Coimbatore,+Tamil+Nadu/", "_blank");
+    });
+  }
+});
+ 
